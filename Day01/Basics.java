@@ -13,8 +13,10 @@ public class Basics {
         // }
 
         // for loop 
-        for(int count = 1; count != 5; count++){
-            System.err.println(count);
-        }
+        // for(int count = 1; count != 5; count++){
+        //     System.err.println(count);
+        // }
+
+        
     }
 }
