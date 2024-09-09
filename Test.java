@@ -1,33 +1,23 @@
-import java.util.Scanner;
+import java.util.Arrays;
 
 class Solution {
     public static void main(String[] args) {
-        String[] nums = {"Zero","One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter a number to check in words: ");
-        int num = input.nextInt();
-        int reverse = 0;
-        while(num > 0){
-            int rem = num % 10;
-            reverse = reverse * 10 + rem;
-            num /= 10;
-        }
-        // System.out.println(reverse);
-        num = reverse;
-        reverse = 0;
-        String words = "";
-        // System.out.println(num);
-        while(num > 0){
-            int rem = num % 10;
-            // System.out.println(rem);
-            num /= 10;
-            for(int i = 0; i < nums.length; i++){
-                if(i == rem){
-                    words = words + nums[i] + " ";
-                } 
+        int[] nums = {1, 2, 3, 4, 1, 3};
+        System.out.println(containsDuplicate(nums));
+        
+    }
+
+    static boolean containsDuplicate(int[] nums) {
+        for(int i = 0; i < nums.length; i++){
+            for(int j = 1; j < nums.length - i; j++){
+                if(nums[j] < nums[j - 1]){
+                    int temp = nums[j];
+                    nums[j] = nums[j - 1];
+                    nums[j - 1] = temp;
+                }
             }
         }
-        System.out.println(words);
+        System.out.println(Arrays.toString(nums));
+        return false;
     }
 }
-
